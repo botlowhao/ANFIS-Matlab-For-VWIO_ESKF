@@ -1,6 +1,6 @@
 function mu = custom_mf1(x, Am1)
-%CUSTOM_MF1 此处显示有关此函数的摘要
-%   此处显示详细说明
+%CUSTOM_MF1 p 趋近于正无穷 急转弯 Slipper Turning
+% 
     if x < 1
         mu = 0;
     elseif x >=1 && x<=(Am1 + 1)/ 2

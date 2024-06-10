@@ -1,6 +1,6 @@
 function mu = custom_mf2(x, Am2)
-%CUSTOM_MF2 此处显示有关此函数的摘要
-%   此处显示详细说明
+%CUSTOM_MF2 p 趋近于1 向前直行 Straight forward
+%   
     if x < 1
         mu = 0;
     elseif x == 1

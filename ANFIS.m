@@ -53,6 +53,7 @@ mu6_values = arrayfun(@(x) custom_mf6(x, Am7, Am8), x6_values);
 % 绘制A1-A4隶属函数
 figure;
 
+% 绘制A1
 subplot(2, 2, 1);
 plot(x1_values, mu1_values, 'b', 'LineWidth', 2);
 title('Custom Membership Function Of A1', 'FontSize', 20, 'FontName', 'Times New Roman');
@@ -63,6 +64,7 @@ hold on;
 plot(Am1, custom_mf1(Am1, Am1), 'bo', 'MarkerSize', 8, 'LineWidth', 2); % 标注Am1
 text(Am1, custom_mf1(Am1, Am1) - 0.02, 'Am1', 'VerticalAlignment', 'top', 'HorizontalAlignment', 'right', 'FontSize', 12, 'FontWeight', 'bold', 'FontName', 'Times New Roman');
 
+% 绘制A2
 subplot(2, 2, 2);
 plot(x2_values, mu2_values, 'b', 'LineWidth', 2);
 title('Custom Membership Function Of A2', 'FontSize', 20, 'FontName', 'Times New Roman');
@@ -73,6 +75,7 @@ hold on;
 plot(Am2, custom_mf2(Am2, Am2), 'bo', 'MarkerSize', 8, 'LineWidth', 2); % 标注Am2
 text(Am2, custom_mf2(Am2, Am2) + 0.02, 'Am2', 'VerticalAlignment', 'bottom', 'HorizontalAlignment', 'right', 'FontSize', 12, 'FontWeight', 'bold', 'FontName', 'Times New Roman');
 
+% 绘制A3
 subplot(2, 2, 3);
 plot(x3_values, mu3_values, 'b', 'LineWidth', 2);
 title('Custom Membership Function Of A3', 'FontSize', 20, 'FontName', 'Times New Roman');
@@ -83,6 +86,7 @@ hold on;
 plot(Am3, custom_mf3(Am3, Am3), 'bo', 'MarkerSize', 8, 'LineWidth', 2); % 标注Am3
 text(Am3, custom_mf3(Am3, Am3) + 0.02, 'Am3', 'VerticalAlignment', 'bottom', 'HorizontalAlignment', 'right', 'FontSize', 12, 'FontWeight', 'bold', 'FontName', 'Times New Roman');
 
+% 绘制A4
 subplot(2, 2, 4);
 plot(x4_values, mu4_values, 'b', 'LineWidth', 2);
 title('Custom Membership Function Of A4', 'FontSize', 20, 'FontName', 'Times New Roman');
@@ -103,6 +107,7 @@ set(gcf, 'Color', 'w');
 % 绘制A5-A6隶属函数
 figure;
 
+% 绘制A5
 subplot(1, 2, 1);
 plot(x5_values, mu5_values, 'r', 'LineWidth', 2);
 title('Custom Membership Function Of A5', 'FontSize', 20, 'FontName', 'Times New Roman');
@@ -115,8 +120,7 @@ text(Am5, custom_mf5(Am5, Am5, Am6) -0.01 , 'Am5', 'VerticalAlignment', 'top', '
 plot(Am6, custom_mf5(Am6, Am5, Am6), 'ro', 'MarkerSize', 8, 'LineWidth', 2); % 标注Am6
 text(Am6, custom_mf5(Am6, Am5, Am6) + 0.01, 'Am6', 'VerticalAlignment', 'bottom', 'HorizontalAlignment', 'right', 'FontSize', 12, 'FontWeight', 'bold', 'FontName', 'Times New Roman');
 
-
-
+% 绘制A6
 subplot(1, 2, 2);
 plot(x6_values, mu6_values, 'r', 'LineWidth', 2);
 title('Custom Membership Function Of A6', 'FontSize', 20, 'FontName', 'Times New Roman');
