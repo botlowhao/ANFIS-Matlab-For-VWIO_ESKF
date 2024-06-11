@@ -1,5 +1,5 @@
 function mu = custom_mf3(x, Am3)
-%CUSTOM_MF3 p 趋近于-1 原地打转 Spin Turning
+%CUSTOM_MF3 p approaches -1(Spin Turning)
 %   此处显示详细说明
     if x > 1
         mu = 0;

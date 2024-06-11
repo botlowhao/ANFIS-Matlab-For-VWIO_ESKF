@@ -1,5 +1,5 @@
 function mu = custom_mf2(x, Am2)
-%CUSTOM_MF2 p 趋近于1 向前直行 Straight forward
+%CUSTOM_MF2 p approaches 1(Straight forward)
 %   
     if x < 1
         mu = 0;

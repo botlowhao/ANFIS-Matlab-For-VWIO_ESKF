@@ -1,5 +1,5 @@
 function mu = custom_mf4(x, Am4)
-%CUSTOM_MF4 p 趋近于负无穷 急转弯 Slipper Turning
+%CUSTOM_MF4 p approaches negative infinity(Slipper Turning)
 %   此处显示详细说明
     if x < Am4
         mu = 1;

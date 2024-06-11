@@ -1,5 +1,5 @@
 function mu = custom_mf1(x, Am1)
-%CUSTOM_MF1 p 趋近于正无穷 急转弯 Slipper Turning
+%CUSTOM_MF1 p approaches positive infinity(Slipper Turning)
 % 
     if x < 1
         mu = 0;

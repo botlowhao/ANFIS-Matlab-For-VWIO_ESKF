@@ -1,5 +1,5 @@
 function mu = custom_mf6(x, Am7, Am8)
-%CUSTOM_MF6 w 较大 快速转弯 Quickly Turning
+%CUSTOM_MF6 w Larger(Quickly Turning)
 %   此处显示详细说明
     if x < Am7
         mu = 0;

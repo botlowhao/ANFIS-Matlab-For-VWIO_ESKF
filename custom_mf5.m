@@ -1,5 +1,5 @@
 function mu = custom_mf5(x, Am5, Am6)
-%CUSTOM_MF5 w 较小 缓慢转弯 Slow Turning
+%CUSTOM_MF5 w Smaller(Slow Turning)
 %   此处显示详细说明
     if x < Am5
         mu = 1;
