@@ -6,7 +6,7 @@ close all;
 %% Data Preprocessing
 
 % Read data
-data = xlsread('ANFIS_WO_20240609.csv');
+data = xlsread('ANFIS_WO_sync8.csv');
 
 % Extract columns
 rho = data(:, 1);
@@ -34,52 +34,58 @@ Am6 = omega_max;
 Am7 = omega_min;
 Am8 = omega_max;
 
-
-
-
 %% Create Fuzzy Inference System
 
 % Initialize  Fuzzy Inference System
-fis = newfis('ANFIS-WO','mamdani', 'min', 'max', 'min', 'max', 'centroid');
+fis = newfis('ANFIS-WO', 'mamdani', 'min', 'max', 'min', 'max', 'centroid');
 
-% Add Input Variable And Custom Membership Fuction
-% (A3,A6)
-fis = addvar(fis, 'input', 'A3', [-25 10]);
-fis = addmf(fis, 'input', 1, 'CustomA3', 'custom', {@custom_mf3});
-fis = addvar(fis, 'input', 'A6', [-0.6 0.6]);
-fis = addmf(fis, 'input', 2, 'CustomA6', 'custom', {@custom_mf6});
+% Add Input Variable p And Custom Membership Function A1-A4
+fis = addvar(fis, 'input', 'p', [-25 25]);
+fis = addmf(fis, 'input', 1, 'A1', 'custom', @(x) custom_mf1(x, Am1));
+fis = addmf(fis, 'input', 1, 'A2', 'custom', @(x) custom_mf2(x, Am2));
+fis = addmf(fis, 'input', 1, 'A3', 'custom', @(x) custom_mf3(x, Am3));
+fis = addmf(fis, 'input', 1, 'A4', 'custom', @(x) custom_mf4(x, Am4));
 
-% Add Output Variable
+% Add Another Input Variable w And Custom Membership Function A5-A6
+fis = addvar(fis, 'input', 'w', [-0.6 0.6]);
+fis = addmf(fis, 'input', 2, 'A5', 'custom', @(x) custom_mf5(x, [Am5, Am6]));
+fis = addmf(fis, 'input', 2, 'A6', 'custom', @(x) custom_mf6(x, [Am7, Am8]));
+
+% Add Output Variable Variance
 fis = addvar(fis, 'output', 'Variance', [0 1]);
-fis = addmf(fis, 'output', 1, 'HighVariance', 'constant', [1]);
-fis = addmf(fis, 'output', 1, 'LowVariance', 'constant', [0]);
+fis = addmf(fis, 'output', 1, 'HighVariance', 'constant', 1);
+fis = addmf(fis, 'output', 1, 'LowVariance', 'constant', 0);
 
-% Calculation And Apply Rules
+% Define rules
+rules = [
+    % Rule format: [input1_mf input2_mf output_mf weight operator]
+    % Operator 1 for AND which uses min
+    1 2 1 1 1; % min(A1(p), A2(w)) -> High Variance
+    2 2 1 1 1; % min(A2(p), A2(w)) -> High Variance
+    4 2 1 1 1; % min(A4(p), A2(w)) -> High Variance
+    1 1 1 1 1; % min(A1(p), A1(w)) -> High Variance
+    4 1 1 1 1; % min(A4(p), A1(w)) -> High Variance
+    3 2 2 1 1; % min(A3(p), A2(w)) -> Low Variance
+    2 1 2 1 1; % min(A2(p), A1(w)) -> Low Variance
+    3 1 1 1 1; % min(A3(p), A1(w)) -> High Variance
+];
 
-% Define The Membership Values of A3 And A6
-A3_mf_output = arrayfun(@(x) custom_mf3(x, Am3), rho);
-A6_mf_output = arrayfun(@(x) custom_mf6(x, Am7, Am8), omega);
-% Calulate The Output Value Of A3 And A6
-G_7w = min(A3_mf_output, A6_mf_output);
+% Add All Rules To FIS
+fis = addrule(fis, rules);
+rules_display = showrule(fis);
 
-% Using Logical Judgment And Add Rules
-% G_7w_threshold = 0.5;
-% for i = 1:length(G_7w)
-%         if G_7w(i) > G_7w_threshold
-%             fis = addrule(fis, "if A3 is CustomA3 and A6 is CustomA6 then Variance is LowVariance (1)");
-%         else
-%             fis = addrule(fis, "if A3 is CustomA3 and A6 is CustomA6 then Variance is HighVariance (1)");
-%         end
-% end
+save('./ANFIS_WO_FIS.mat', 'fis');
 
-
-% Test the Fis
-
-
-
-%%
+% Draw A Structure Disgram Of FIS
+% plotfis(fis);
 
 
-            
-            
+
+
+
+
+
+
+
+
 

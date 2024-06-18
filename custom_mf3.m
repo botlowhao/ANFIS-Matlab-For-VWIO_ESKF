@@ -1,6 +1,7 @@
-function mu = custom_mf3(x, Am3)
+function mu = custom_mf3(x, params)
 %CUSTOM_MF3 p approaches -1(Spin Turning)
 %   此处显示详细说明
+    Am3 = params(1);
     if x > 1
         mu = 0;
     elseif x == -1

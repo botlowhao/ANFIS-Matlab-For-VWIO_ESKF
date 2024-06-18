@@ -1,6 +1,8 @@
-function mu = custom_mf6(x, Am7, Am8)
+function mu = custom_mf6(x, params)
 %CUSTOM_MF6 w Larger(Quickly Turning)
 %   此处显示详细说明
+    Am7 = params(1);
+    Am8 = params(2);
     if x < Am7
         mu = 0;
     elseif x >=Am7 && x<=(Am7 + Am8)/ 2

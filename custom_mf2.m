@@ -1,6 +1,7 @@
-function mu = custom_mf2(x, Am2)
+function mu = custom_mf2(x, params)
 %CUSTOM_MF2 p approaches 1(Straight forward)
-%   
+% 
+    Am2 = params(1);
     if x < 1
         mu = 0;
     elseif x == 1

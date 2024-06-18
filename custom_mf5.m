@@ -1,6 +1,9 @@
-function mu = custom_mf5(x, Am5, Am6)
+function mu = custom_mf5(x, params)
 %CUSTOM_MF5 w Smaller(Slow Turning)
 %   此处显示详细说明
+    Am5 = params(1);
+    Am6 = params(2);
+    
     if x < Am5
         mu = 1;
     elseif x >=Am5 && x<=(Am5 + Am6)/ 2

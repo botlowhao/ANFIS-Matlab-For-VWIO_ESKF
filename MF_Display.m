@@ -6,7 +6,7 @@ close all;
 %% Data Preprocessing
 
 % Read data
-data = xlsread('ANFIS_WO_20240609.csv');
+data = xlsread('ANFIS_WO_sync9.csv');
 
 % Extract columns
 rho = data(:, 1);
@@ -51,8 +51,8 @@ mu2_values = arrayfun(@(x) custom_mf2(x, Am2), x2_values);
 mu3_values = arrayfun(@(x) custom_mf3(x, Am3), x3_values);
 mu4_values = arrayfun(@(x) custom_mf4(x, Am4), x4_values);
 
-mu5_values = arrayfun(@(x) custom_mf5(x, Am5, Am6), x5_values);
-mu6_values = arrayfun(@(x) custom_mf6(x, Am7, Am8), x6_values);
+mu5_values = arrayfun(@(x) custom_mf5(x, [Am5, Am6]), x5_values);
+mu6_values = arrayfun(@(x) custom_mf6(x, [Am7, Am8]), x6_values);
 
 % Plot membership functions A1-A4
 figure;
@@ -119,10 +119,10 @@ xlabel('w (rad/s)', 'FontSize', 16, 'FontWeight', 'bold', 'FontName', 'Times New
 ylabel('Membership value', 'FontSize', 16, 'FontWeight', 'bold', 'FontName', 'Times New Roman');
 set(gca, 'FontSize', 14, 'FontWeight', 'bold', 'FontName', 'Times New Roman'); 
 hold on;
-plot(Am5, custom_mf5(Am5, Am5, Am6), 'ro', 'MarkerSize', 8, 'LineWidth', 2); % Annotate Am5
-text(Am5, custom_mf5(Am5, Am5, Am6) -0.01 , 'Am5', 'VerticalAlignment', 'top', 'HorizontalAlignment', 'right', 'FontSize', 12, 'FontWeight', 'bold', 'FontName', 'Times New Roman');
-plot(Am6, custom_mf5(Am6, Am5, Am6), 'ro', 'MarkerSize', 8, 'LineWidth', 2); % Annotate Am6
-text(Am6, custom_mf5(Am6, Am5, Am6) + 0.01, 'Am6', 'VerticalAlignment', 'bottom', 'HorizontalAlignment', 'right', 'FontSize', 12, 'FontWeight', 'bold', 'FontName', 'Times New Roman');
+plot(Am5, custom_mf5(Am5, [Am5, Am6]), 'ro', 'MarkerSize', 8, 'LineWidth', 2); % Annotate Am5
+text(Am5, custom_mf5(Am5, [Am5, Am6]) -0.01 , 'Am5', 'VerticalAlignment', 'top', 'HorizontalAlignment', 'right', 'FontSize', 12, 'FontWeight', 'bold', 'FontName', 'Times New Roman');
+plot(Am6, custom_mf5(Am6, [Am5, Am6]), 'ro', 'MarkerSize', 8, 'LineWidth', 2); % Annotate Am6
+text(Am6, custom_mf5(Am6, [Am5, Am6]) + 0.01, 'Am6', 'VerticalAlignment', 'bottom', 'HorizontalAlignment', 'right', 'FontSize', 12, 'FontWeight', 'bold', 'FontName', 'Times New Roman');
 
 % Plot A6
 subplot(1, 2, 2);
@@ -132,10 +132,10 @@ xlabel('w (rad/s)', 'FontSize', 16, 'FontWeight', 'bold', 'FontName', 'Times New
 ylabel('Membership value', 'FontSize', 16, 'FontWeight', 'bold', 'FontName', 'Times New Roman');
 set(gca, 'FontSize', 14, 'FontWeight', 'bold', 'FontName', 'Times New Roman'); 
 hold on;
-plot(Am7, custom_mf6(Am7, Am7, Am8), 'ro', 'MarkerSize', 8, 'LineWidth', 2); % Annotate Am7
-text(Am7, custom_mf6(Am7, Am7, Am8) + 0.01, 'Am7', 'VerticalAlignment', 'bottom', 'HorizontalAlignment', 'right', 'FontSize', 12, 'FontWeight', 'bold', 'FontName', 'Times New Roman');
-plot(Am8, custom_mf6(Am8, Am7, Am8), 'ro', 'MarkerSize', 8, 'LineWidth', 2); % Annotate Am8
-text(Am8, custom_mf6(Am8, Am7, Am8) - 0.01, 'Am8', 'VerticalAlignment', 'top', 'HorizontalAlignment', 'right', 'FontSize', 12, 'FontWeight', 'bold', 'FontName', 'Times New Roman');
+plot(Am7, custom_mf6(Am7, [Am7, Am8]), 'ro', 'MarkerSize', 8, 'LineWidth', 2); % Annotate Am7
+text(Am7, custom_mf6(Am7, [Am7, Am8]) + 0.01, 'Am7', 'VerticalAlignment', 'bottom', 'HorizontalAlignment', 'right', 'FontSize', 12, 'FontWeight', 'bold', 'FontName', 'Times New Roman');
+plot(Am8, custom_mf6(Am8, [Am7, Am8]), 'ro', 'MarkerSize', 8, 'LineWidth', 2); % Annotate Am8
+text(Am8, custom_mf6(Am8, [Am7, Am8]) - 0.01, 'Am8', 'VerticalAlignment', 'top', 'HorizontalAlignment', 'right', 'FontSize', 12, 'FontWeight', 'bold', 'FontName', 'Times New Roman');
 
 % Add overall title for A5-A6
 annotation('textbox', [0 0.9 1 0.1], 'String', 'Custom Membership Functions Of A5, A6 For Wheel Angular Velocity w', ...
