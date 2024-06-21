@@ -37,19 +37,19 @@ Am8 = omega_max;
 %% Create Fuzzy Inference System
 
 % Initialize  Fuzzy Inference System
-fis = newfis('ANFIS-WO', 'mamdani', 'min', 'max', 'min', 'max', 'centroid');
+fis = newfis('ANFIS-WO', 'sugeno', 'min', 'max', 'prod', 'sum', 'wtaver');
 
 % Add Input Variable p And Custom Membership Function A1-A4
 fis = addvar(fis, 'input', 'p', [-25 25]);
-fis = addmf(fis, 'input', 1, 'A1', 'custom', @(x) custom_mf1(x, Am1));
-fis = addmf(fis, 'input', 1, 'A2', 'custom', @(x) custom_mf2(x, Am2));
-fis = addmf(fis, 'input', 1, 'A3', 'custom', @(x) custom_mf3(x, Am3));
-fis = addmf(fis, 'input', 1, 'A4', 'custom', @(x) custom_mf4(x, Am4));
+fis = addmf(fis, 'input', 1, 'A1', 'smf', [1, Am1]);
+fis = addmf(fis, 'input', 1, 'A2', 'custmf2', [1, Am2]);
+fis = addmf(fis, 'input', 1, 'A3', 'custmf3', [Am3, -1]);
+fis = addmf(fis, 'input', 1, 'A4', 'zmf', [Am4, -1]);
 
 % Add Another Input Variable w And Custom Membership Function A5-A6
 fis = addvar(fis, 'input', 'w', [-0.6 0.6]);
-fis = addmf(fis, 'input', 2, 'A5', 'custom', @(x) custom_mf5(x, [Am5, Am6]));
-fis = addmf(fis, 'input', 2, 'A6', 'custom', @(x) custom_mf6(x, [Am7, Am8]));
+fis = addmf(fis, 'input', 2, 'A5', 'zmf', [Am5 Am6]);
+fis = addmf(fis, 'input', 2, 'A6', 'smf', [Am7 Am8]);
 
 % Add Output Variable Variance
 fis = addvar(fis, 'output', 'Variance', [0 1]);
@@ -77,9 +77,10 @@ rules_display = showrule(fis);
 save('./ANFIS_WO_FIS.mat', 'fis');
 
 % Draw A Structure Disgram Of FIS
-% plotfis(fis);
+plotfis(fis);
 
 
+%%
 
 
 
