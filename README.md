@@ -34,4 +34,4 @@ ANFIS-MATLAB For Visual-Wheel-Inertial Odometry ESKF Muti-Sensor Fusion
 </div>
 
 ## FIS Structure
-![](./ANFIS_Structure.png)
+![](./FIS_Structure.png)
