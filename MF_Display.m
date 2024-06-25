@@ -48,7 +48,7 @@ x6_values = linspace(-0.6, 0.6, 100);
 % Calculate membership values
 mu1_values = smf(x1_values, [1, Am1]);
 mu2_values = custmf2(x2_values, [1, Am2]);
-mu3_values = custmf3(x3_values, [Am3, -1]);
+mu3_values = custmf3(x3_values, [Am3, 1]);
 mu4_values = zmf(x4_values, [Am4, -1]);
 mu5_values = zmf(x5_values, [Am5, Am6]);
 mu6_values = smf(x6_values, [Am7, Am8]);
@@ -93,12 +93,12 @@ xlabel('p (r/min)', 'FontSize', 16, 'FontWeight', 'bold', 'FontName', 'Times New
 ylabel('Membership value', 'FontSize', 16, 'FontWeight', 'bold', 'FontName', 'Times New Roman');
 set(gca, 'FontSize', 14, 'FontWeight', 'bold', 'FontName', 'Times New Roman'); 
 hold on;
-plot(Am3, custmf3(Am3, -1), 'bo', 'MarkerSize', 8, 'LineWidth', 2); % Annotate Am3
-text(Am3, custmf3(Am3, -1) + 0.02, 'Am3', 'VerticalAlignment', 'bottom', 'HorizontalAlignment', 'right', 'FontSize', 12, 'FontWeight', 'bold', 'FontName', 'Times New Roman');
-plot(-1, custmf3(Am3, -1), 'bo', 'MarkerSize', 8, 'LineWidth', 2); % Annotate -1.00
-text(-1.5, custmf3(Am3, -1) + 0.02, '-1.00', 'VerticalAlignment', 'bottom', 'HorizontalAlignment', 'right', 'FontSize', 12, 'FontWeight', 'bold', 'FontName', 'Times New Roman');
-plot((Am3 - 1) / 2, custmf3((Am3 - 1) / 2, [Am3, -1]), 'bo', 'MarkerSize', 8, 'LineWidth', 2); % Annotate (Am3 - 1) / 2
-text((Am3 - 1) / 2, custmf3((Am3 - 1) / 2, [Am3, -1]) + 0.02, '(Am3 - 1) / 2', 'VerticalAlignment', 'bottom', 'HorizontalAlignment', 'right', 'FontSize', 12, 'FontWeight', 'bold', 'FontName', 'Times New Roman');
+plot(Am3, custmf3(Am3, 1), 'bo', 'MarkerSize', 8, 'LineWidth', 2); % Annotate Am3
+text(Am3, custmf3(Am3, 1) + 0.02, 'Am3', 'VerticalAlignment', 'bottom', 'HorizontalAlignment', 'right', 'FontSize', 12, 'FontWeight', 'bold', 'FontName', 'Times New Roman');
+plot(1, custmf3(Am3, 1), 'bo', 'MarkerSize', 8, 'LineWidth', 2); % Annotate -1.00
+text(1, custmf3(Am3, 1) + 0.02, '1.00', 'VerticalAlignment', 'bottom', 'HorizontalAlignment', 'right', 'FontSize', 12, 'FontWeight', 'bold', 'FontName', 'Times New Roman');
+plot((Am3 + 1) / 2, custmf3((Am3 + 1) / 2, [Am3, 1]), 'bo', 'MarkerSize', 8, 'LineWidth', 2); % Annotate (Am3 + 1) / 2
+text((Am3 + 1) / 2, custmf3((Am3 + 1) / 2, [Am3, 1]) + 0.02, '(Am3 + 1.00) / 2', 'VerticalAlignment', 'bottom', 'HorizontalAlignment', 'right', 'FontSize', 12, 'FontWeight', 'bold', 'FontName', 'Times New Roman');
 
 
 % Plot A4
