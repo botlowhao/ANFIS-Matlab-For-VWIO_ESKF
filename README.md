@@ -5,17 +5,17 @@ ANFIS-MATLAB For Visual-Wheel-Inertial Odometry ESKF Muti-Sensor Fusion
 
 ### Input Membership Function
 #### Wheel Velocity Difference p
-![](./Membership%20Function%20Disgram/Custom%20Membership%20Functions%20Of%20A1,%20A2,%20A3,%20A4%20For%20Wheel%20Velocity%20Difference%20p.jpg)
+![](./Membership%20Function%20Diagram/Custom%20Membership%20Functions%20Of%20A1,%20A2,%20A3,%20A4%20For%20Wheel%20Velocity%20Difference%20p.jpg)
 
-![](./Membership%20Function%20Disgram/Input%20Membership%20Function%20Of%20Wheel%20Velocity%20Difference%20p.jpg)
+![](./Membership%20Function%20Diagram/Input%20Membership%20Function%20Of%20Wheel%20Velocity%20Difference%20p.jpg)
 
 #### Wheel Angular Velocity $\omega$
-![](./Membership%20Function%20Disgram/Custom%20Membership%20Functions%20Of%20A5,%20A6%20For%20Wheel%20Angular%20Velocity%20w.jpg)
+![](./Membership%20Function%20Diagram/Custom%20Membership%20Functions%20Of%20A5,%20A6%20For%20Wheel%20Angular%20Velocity%20w.jpg)
 
-![](./Membership%20Function%20Disgram/Input%20Membership%20Function%20Of%20Angular%20Velocity%20w.jpg)
+![](./Membership%20Function%20Diagram/Input%20Membership%20Function%20Of%20Angular%20Velocity%20w.jpg)
 
 ### Output Membership Function
-![](./Membership%20Function%20Disgram/Q1%20Variance%20Output%20Membership%20Function.jpg)
+![](./Membership%20Function%20Diagram/Q1%20Variance%20Output%20Membership%20Function.jpg)
 
 ## Fuzzy Rules Inference
 <div class="center">
@@ -33,8 +33,4 @@ ANFIS-MATLAB For Visual-Wheel-Inertial Odometry ESKF Muti-Sensor Fusion
 </div>
 
 ## FIS Structure
-<<<<<<< HEAD
 ![](./FIS_Structure.png)
-=======
-![](./FIS_Structure.png)
->>>>>>> 0f6e2f2894f2741dc9b5fb26a7c8f1c98bbb25ea
