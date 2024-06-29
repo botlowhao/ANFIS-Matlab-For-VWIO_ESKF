@@ -53,9 +53,15 @@ fis = addmf(fis, 'input', 2, 'A5', 'zmf', [Am5 Am6]);
 fis = addmf(fis, 'input', 2, 'A6', 'smf', [Am7 Am8]);
 
 % Add Output Variable for Wheel Odometry Variance
+<<<<<<< HEAD
 fis = addvar(fis, 'output', 'Q1Variance', [0 1]);
 fis = addmf(fis, 'output', 1, 'HighVariance', 'trimf', [0.33, 0.66, 1]);
 fis = addmf(fis, 'output', 1, 'LowVariance', 'trimf', [0, 0.33, 0.66]);
+=======
+fis = addvar(fis, 'output', 'WOVariance', [0 1]);
+fis = addmf(fis, 'output', 1, 'HighVariance', 'trimf', [1/3, 2/3, 1]);
+fis = addmf(fis, 'output', 1, 'LowVariance', 'trimf', [0, 1/3, 2/3]);
+>>>>>>> 0f6e2f2894f2741dc9b5fb26a7c8f1c98bbb25ea
 
 
 % Define rules
@@ -78,13 +84,21 @@ rules_display = showrule(fis);
 save('./FIS_WO.mat', 'fis');
 
 % Draw A Structure Disgram Of FIS
+<<<<<<< HEAD
 % plotfis(fis);
+=======
+plotfis(fis);
+>>>>>>> 0f6e2f2894f2741dc9b5fb26a7c8f1c98bbb25ea
 
 
 %%
 
+<<<<<<< HEAD
 plotmf(fis,'output',1,101)
 % plotmf(fis,'input',2)
+=======
+
+>>>>>>> 0f6e2f2894f2741dc9b5fb26a7c8f1c98bbb25ea
 
 
 
